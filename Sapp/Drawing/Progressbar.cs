@@ -14,14 +14,14 @@ namespace Sapp.Drawing
 
         }
 
-       public static void Draw(Graphics g, Rectangle rectangle, Direction dir, float percentage, bool overbar=false)
+        public static void Draw(Graphics g, Rectangle rectangle, Direction dir, float percentage, bool overbar = false)
         {
             switch (dir)
             {
                 case Direction.Right:
                     g.DrawRectangle(new Pen(Brushes.Black), rectangle);
                     g.FillRectangle(Brushes.Black, new Rectangle(rectangle.X, rectangle.Y, (int)Math.Ceiling(percentage / 100 * rectangle.Width), rectangle.Height));
-                    if (overbar) 
+                    if (overbar)
                         g.DrawLine(new Pen(Brushes.Black), new Point(rectangle.X + (int)Math.Ceiling(percentage / 100 * rectangle.Width), rectangle.Y - 2), new Point(rectangle.X + (int)Math.Ceiling(percentage / 100 * rectangle.Width), rectangle.Y + rectangle.Height + 2));
                     break;
                 case Direction.Left:
@@ -44,5 +44,6 @@ namespace Sapp.Drawing
                         g.DrawLine(new Pen(Brushes.Black), new Point(rectangle.X - 2, rectangle.Y + (int)Math.Ceiling(percentage / 100 * rectangle.Height)), new Point(rectangle.X + rectangle.Width + 2, rectangle.Y + (int)Math.Ceiling(percentage / 100 * rectangle.Height)));
                     break;
             }
+        }
     }
 }

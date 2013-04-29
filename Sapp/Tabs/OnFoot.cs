@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using LogiFrame;
 using System.Drawing;
+using MemoryMaster.Memory;
 
 namespace Sapp.Tabs
 {
@@ -30,16 +31,23 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
+            Pointer player = GTA.gta.GetPointer(0xB6F5F0);
+            Pointer location = player.GetPointer(0x14);
+
+            float playerhealth = player.GetMemory(0x540).GetFloat();
+            float playermaxhealth = player.GetMemory(0x544).GetFloat();
+            float armor = player.GetMemory(0x548).GetFloat();
+
+
             e.graphics.Clear(Color.White);
             Bitmap weapon = (Bitmap)(Properties.Resources.ResourceManager.GetObject("weapon_0"));
             e.graphics.DrawImage(weapon, new Point(0, 0));
 
-            e.graphics.DrawString("Armour:", Drawing.Fonts.Regular, Brushes.Black, new PointF(e.lcd.Width - 90, -1));
-            drawing.drawBar(e.grahpics, new Rectangle(e.lcd.Width - 52, 2, 50, 6), Direction.Right, (float)Math.Ceiling(playerarmor / 100 * 100));
+            e.graphics.DrawString("Armor:", Drawing.Fonts.Regular, Brushes.Black, new PointF(e.lcd.Width - 90, -1));
+            Drawing.Progressbar.Draw(e.graphics, new Rectangle(e.lcd.Width - 52, 2, 50, 6), Direction.Right, (float)Math.Ceiling(armor / 100 * 100));
 
-            //health
             e.graphics.DrawString("Health:", Drawing.Fonts.Regular, Brushes.Black, new PointF(e.lcd.Width - 87, 7));
-            drawing.drawBar(e.graphics, new Rectangle(e.lcd.Width - 52, 10, 50, 6), Direction.Right, (float)Math.Ceiling(playerhealth / playermaxhealth * 100));
+            Drawing.Progressbar.Draw(e.graphics, new Rectangle(e.lcd.Width - 52, 10, 50, 6), Direction.Right, (float)Math.Ceiling(playerhealth / playermaxhealth * 100));
 
 
         }

@@ -86,6 +86,10 @@
       <Project>{6878789E-BD46-419E-BA5E-D96DAB355394}</Project>
       <Name>MemoryMaster</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SanAndreas\SanAndreas.csproj">
+      <Project>{5CFE2CF3-211E-4285-8DBD-AC7631577C09}</Project>
+      <Name>SanAndreas</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resource\weapons\weapon_0.bmp" />
