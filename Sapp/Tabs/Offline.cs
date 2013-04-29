@@ -32,9 +32,9 @@ namespace Sapp.Tabs
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
             e.graphics.Clear(Color.White);
-            e.graphics.DrawString("[LSRES]", new Font("Calibri", 12.0f, FontStyle.Bold), Brushes.Black, new Point(1, 1));
-            e.graphics.DrawString("Join", new Font("Calibri", 8.0f, FontStyle.Regular), Brushes.Black, new Point(6, 30));
-            e.graphics.DrawString("Website", new Font("Calibri", 8.0f, FontStyle.Regular), Brushes.Black, new Point(36, 30));
+            e.graphics.DrawString("[LSRES]", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
+            e.graphics.DrawString("Join", Drawing.Fonts.Regular, Brushes.Black, new Point(6, 30));
+            e.graphics.DrawString("Website", Drawing.Fonts.Regular, Brushes.Black, new Point(36, 30));
 
             if (!IsShowAble())
                 app.ShowNextTab();

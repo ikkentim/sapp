@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Direction.cs" />
+    <Compile Include="Drawing\Fonts.cs" />
+    <Compile Include="Drawing\Progressbar.cs" />
     <Compile Include="GTA.cs" />
     <Compile Include="LCDApplication.cs" />
     <Compile Include="Program.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -82,6 +86,138 @@
       <Project>{6878789E-BD46-419E-BA5E-D96DAB355394}</Project>
       <Name>MemoryMaster</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_9.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_14.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_15.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_17.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_18.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_22.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_23.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_24.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_25.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_26.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_27.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_28.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_29.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_30.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_31.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_32.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_33.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_34.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_35.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_36.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_37.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_38.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_39.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_40.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_41.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_42.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_43.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_44.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_45.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\weapons\weapon_46.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

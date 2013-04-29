@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sapp.Properties
-{
-
-
+namespace Sapp.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,349 @@ namespace Sapp.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Sapp.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_0 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_1 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_10 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_11 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_12 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_13 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_13", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_14 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_15 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_16 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_17 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_18 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_18", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_2 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_22 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_23 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_23", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_24 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_25 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_26 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_27 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_27", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_28 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_28", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_29 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_29", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_3 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_30 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_31 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_32 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_33 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_33", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_34 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_34", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_35 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_36 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_37 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_37", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_38 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_38", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_39 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_39", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_4 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_40 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_41 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_41", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_42 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_42", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_43 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_43", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_44 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_44", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_45 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_45", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_46 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_46", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_5 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_6 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_7 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_8 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap weapon_9 {
+            get {
+                object obj = ResourceManager.GetObject("weapon_9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

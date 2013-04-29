@@ -25,13 +25,22 @@ namespace Sapp.Tabs
             lcd.OnButtonPressed += new Frame.ButtonPressedHandler(lcd_OnButtonPressed);
             lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
 
-            lcd.SetFramesPerSecond(1);
+            lcd.SetFramesPerSecond(5);
         }
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
             e.graphics.Clear(Color.White);
-            e.graphics.DrawString("On Foot!!!", new Font("Calibri", 12.0f, FontStyle.Bold), Brushes.Black, new Point(1, 1));
+            Bitmap weapon = (Bitmap)(Properties.Resources.ResourceManager.GetObject("weapon_0"));
+            e.graphics.DrawImage(weapon, new Point(0, 0));
+
+            e.graphics.DrawString("Armour:", Drawing.Fonts.Regular, Brushes.Black, new PointF(e.lcd.Width - 90, -1));
+            drawing.drawBar(e.grahpics, new Rectangle(e.lcd.Width - 52, 2, 50, 6), Direction.Right, (float)Math.Ceiling(playerarmor / 100 * 100));
+
+            //health
+            e.graphics.DrawString("Health:", Drawing.Fonts.Regular, Brushes.Black, new PointF(e.lcd.Width - 87, 7));
+            drawing.drawBar(e.graphics, new Rectangle(e.lcd.Width - 52, 10, 50, 6), Direction.Right, (float)Math.Ceiling(playerhealth / playermaxhealth * 100));
+
 
         }
 

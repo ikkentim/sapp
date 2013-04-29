@@ -32,7 +32,7 @@ namespace Sapp.Tabs
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
             e.graphics.Clear(Color.White);
-            e.graphics.DrawString("Loading game", new Font("Calibri", 12.0f, FontStyle.Bold), Brushes.Black, new Point(1, 1));
+            e.graphics.DrawString("Loading game", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
 
         }
 
