@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Direction.cs" />
+    <Compile Include="Drawing\Car.cs" />
     <Compile Include="Drawing\Fonts.cs" />
     <Compile Include="Drawing\Progressbar.cs" />
     <Compile Include="GTA.cs" />
