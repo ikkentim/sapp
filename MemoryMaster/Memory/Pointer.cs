@@ -12,10 +12,13 @@ namespace MemoryMaster.Memory
 
         public int Address = 0;
 
+        public bool Pointing;
         public Pointer(Process process, int address)
         {
             this.process = process;
             this.Address = new Memory(process, address).GetValue();
+
+            Pointing = this.Address != 0;
         }
 
         public Pointer GetPointer(int offset)
