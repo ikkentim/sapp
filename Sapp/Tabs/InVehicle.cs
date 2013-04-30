@@ -54,45 +54,45 @@ namespace Sapp.Tabs
                 return;
             }
 
+            //General memory
+            int radioid = GTA.gta.GetMemory(0x8CB7A5).GetShort();
+
+            //Player Memory
             Pointer playerPointer = GTA.gta.GetPointer(0xB6F5F0);
 
+            //Vehicle memory
             byte type = vehiclePointer.GetMemory(0x590).GetByte();
             short model = vehiclePointer.GetMemory(0x22).GetShort();
 
+            float health = vehiclePointer.GetMemory(0x4C0).GetFloat();
+
+            int nos = vehiclePointer.GetMemory(0x48A).GetByte();
+            float nosStatus = vehiclePointer.GetMemory(0x8A4).GetFloat();
+
+
+            //Position memory
             Pointer vehicleMatrixPointer = vehiclePointer.GetPointer(0x14);
 
+            string locationName = SanAndreas.Data.GetLocationName(vehicleMatrixPointer.GetMemory(0x30).GetFloat(), vehicleMatrixPointer.GetMemory(0x34).GetFloat());
+            float z = vehicleMatrixPointer.GetMemory(0x38).GetFloat();
 
+            float speedx = vehicleMatrixPointer.GetMemory(0x44).GetFloat();
+            float speedy = vehicleMatrixPointer.GetMemory(0x48).GetFloat();
+            float speedz = vehicleMatrixPointer.GetMemory(0x4C).GetFloat();
+
+            int speed = (int)Math.Round(Math.Sqrt(((speedx * speedx) + (speedy * speedy)) + (speedz * speedz)) * 136.666667)
+
+            //Seats
             int seat = -1;
             bool[] steats = new bool[SanAndreas.Data.getSeats(model)];
 
             for (int i = 0; i < SanAndreas.Data.getSeats(model); i++)
             {
                 Pointer passengerPointer = vehiclePointer.GetPointer(0x460 + i * 0x4);
-                //int dat = MemoryReader.getVal(gta, VehiclePointer + (0x460 + (i * 0x4)));
                 steats[i] = passengerPointer.Pointing;
                 if (playerPointer == passengerPointer)
                     seat = i;
             }
-
-            /*
-            int radioid = MemoryReader.getValB(gta, 0x8CB7A5);
-            float carx = MemoryReader.getValF(gta, VehicleMatrixPointer + 0x30);
-            float cary = MemoryReader.getValF(gta, VehicleMatrixPointer + 0x34);
-            float carz = MemoryReader.getValF(gta, VehicleMatrixPointer + 0x38);
-            float carh = MemoryReader.getValF(gta, VehiclePointer + 0x4C0);
-
-            int nos = MemoryReader.getValB(gta, VehiclePointer + 0x48A);
-            float nosF = MemoryReader.getValF(gta, VehiclePointer + 0x8A4);
-
-            float speed_x = MemoryReader.getValF(gta, VehiclePointer + 0x44);
-            float speed_y = MemoryReader.getValF(gta, VehiclePointer + 0x48);
-            float speed_z = MemoryReader.getValF(gta, VehiclePointer + 0x4C);
-            int speed = (int)Math.Round(Math.Sqrt(((speed_x * speed_x) + (speed_y * speed_y)) + (speed_z * speed_z)) * 136.666667);
-
-            string loc = gtaData.getLocationName((double)carx, (double)cary);
-            */
-
-
 
             e.graphics.DrawString("veh.seat:" + seat, Drawing.Fonts.Regular, Brushes.Black, new Point(1, 1));
         }
