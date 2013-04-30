@@ -26,9 +26,18 @@ namespace LogiFrame
             return buttonState;
         }
 
+        public delegate void SetUpdatePriorityDelegate(UpdatePriority priority);
         public void SetUpdatePriority(UpdatePriority priority)
         {
-            label1.Text = "Priority: " + priority.ToString();
+            if (label1.InvokeRequired)
+            {
+                var d = new SetUpdatePriorityDelegate(SetUpdatePriority);
+                d.Invoke(priority);
+            }
+            else
+            {
+                label1.Text = "Priority: " + priority.ToString();
+            }
         }
 
         public void UpdateScreen(System.Drawing.Bitmap bitmap)
