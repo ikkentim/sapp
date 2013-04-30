@@ -20,6 +20,15 @@ namespace Sapp
             InitializeComponent();
 
             SetForegroundWindow(Handle.ToInt32());
+
+            LogiFrame.MessageSet set = new LogiFrame.MessageSet();
+
+            propertyGrid1.SelectedObject = set;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
