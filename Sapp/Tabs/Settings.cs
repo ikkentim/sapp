@@ -41,8 +41,11 @@ namespace Sapp.Tabs
                     e.graphics.DrawString(Properties.Settings.Default.QuickSwitch ? "Enabled" : "Disabled", Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
                     break;
                 case 1:
-                                      e.graphics.DrawString("Library:", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
+                    e.graphics.DrawString("Library:", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
                     e.graphics.DrawString(Properties.Settings.Default.Library, Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
+                    break;
+                case 2:
+                    e.graphics.DrawString("Open Settings Window", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
                     break;
             }
         }
@@ -58,9 +61,14 @@ namespace Sapp.Tabs
                     case 1:
                         Properties.Settings.Default.Library = Properties.Settings.Default.Library == "G15" ? "G510" : "G15";
                         break;
+                    case 2:
+                        System.Windows.Forms.Application.EnableVisualStyles();
+                        System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+                        System.Windows.Forms.Application.Run(new SettingsForm());
+                        break;
                 }
             if (e.button == Button.Button3)
-                CurrentSetting = (CurrentSetting + 1) % 2;
+                CurrentSetting = (CurrentSetting + 1) % 3;
             if (e.button == Button.Button4)
                 app.ShowNextTab();
         }
