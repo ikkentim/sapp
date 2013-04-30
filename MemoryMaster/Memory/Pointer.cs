@@ -58,5 +58,26 @@ namespace MemoryMaster.Memory
         {
             return new Memory(process, Address + offset);
         }
+
+        public bool Equals(Pointer other)
+        {
+            return other.Address == Address;
+        }
+
+        public static bool operator ==(Pointer pointer1, Pointer pointer2)
+        {
+            if (object.ReferenceEquals(pointer1, null))
+                return object.ReferenceEquals(pointer2, null);
+
+            if (object.ReferenceEquals(pointer2, null))
+                return object.ReferenceEquals(pointer1, null);
+
+            return pointer1.Equals(pointer2);
+        }
+
+        public static bool operator !=(Pointer pointer1, Pointer pointer2)
+        {
+            return !(pointer1 == pointer2);
+        }
     }
 }

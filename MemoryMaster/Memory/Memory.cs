@@ -110,5 +110,26 @@ namespace MemoryMaster.Memory
 
             return (short)BitConverter.ToInt32(value2, 0);
         }
+
+        public bool Equals(Memory other)
+        {
+            return other.Address == Address;
+        }
+
+        public static bool operator ==(Memory memory1, Memory memory2)
+        {
+            if (object.ReferenceEquals(memory1, null))
+                return object.ReferenceEquals(memory2, null);
+
+            if (object.ReferenceEquals(memory2, null))
+                return object.ReferenceEquals(memory1, null);
+
+            return memory1.Equals(memory2);
+        }
+
+        public static bool operator !=(Memory memory1, Memory memory2)
+        {
+            return !(memory1 == memory2);
+        }
     }
 }
