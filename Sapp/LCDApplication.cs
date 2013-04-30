@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LogiFrame;
+using System.Diagnostics;
 
 namespace Sapp
 {
@@ -26,15 +27,18 @@ namespace Sapp
             tabs.Add(new Tabs.OnFoot(this));
             tabs.Add(new Tabs.InVehicle(this));
             ShowNextTab();
+
         }
 
-        private Tabs.Tab GetNextTab()
+        private Tabs.Tab GetNextTab(Type type)
         {
             Tabs.Tab firstTab = null;
             Tabs.Tab firstTabAfterMe = null;
             bool foundMe = false;
             foreach (Tabs.Tab t in tabs)
             {
+                if (type != null && t.GetType() != type)
+                    continue;
                 if (!foundMe && firstTab == null && t.IsShowAble() && CurrentTab != t)
                     firstTab = t;
 
@@ -43,7 +47,6 @@ namespace Sapp
 
                 if (CurrentTab == t)
                     foundMe = true;
-
             }
 
             return firstTabAfterMe != null ? firstTabAfterMe : firstTab;
@@ -51,59 +54,21 @@ namespace Sapp
 
         public void ShowNextTab()
         {
-            Tabs.Tab nextTab = GetNextTab();
+            ShowNextTab(null);
+        }
+
+        public void ShowNextTab(Type type)
+        {
+            Tabs.Tab nextTab = GetNextTab(type);
 
             if (nextTab == null)
                 return;
 
-            if(CurrentTab != null)
+            if (CurrentTab != null)
                 CurrentTab.Hide(lcd);
 
             nextTab.Show(lcd);
             CurrentTab = nextTab;
-
-            /*
-            if (CurrentTab == null)
-            {
-                foreach (Tabs.Tab t in tabs)
-                {
-                    if (t.IsShowAble())
-                    {
-                        CurrentTab = t;
-                        t.Show(lcd);
-                    }
-                }
-            }
-            else
-            {
-                bool foundCurrent = false;
-                Tabs.Tab firstAvailable = null;
-                foreach (Tabs.Tab t in tabs)
-                {
-                    if (t == CurrentTab)
-                    {
-                        foundCurrent=true;
-                        continue;
-                    }
-                    bool s = t.IsShowAble();
-
-                    if (!foundCurrent && firstAvailable == null && s)
-                        firstAvailable = t;
-
-                    if (foundCurrent && s)
-                    {
-                        CurrentTab = t;
-                        t.Show(lcd);
-                        return;
-                    }
-                }
-                if (firstAvailable != null)
-                {
-                    CurrentTab = firstAvailable;
-                    firstAvailable.Show(lcd);
-                }
-            }
-            */
         }
     }
 }

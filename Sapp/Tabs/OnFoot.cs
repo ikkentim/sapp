@@ -37,6 +37,9 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
+            if (GTA.gta.GetPointer(0xBA18FC).Pointing)
+                app.ShowNextTab((new InVehicle(null)).GetType());
+
             Pointer player = GTA.gta.GetPointer(0xB6F5F0);
             Pointer location = player.GetPointer(0x14);
 
