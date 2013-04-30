@@ -45,7 +45,6 @@
     <Compile Include="Memory\ProcessReader.cs" />
     <Compile Include="Memory\Reader.cs" />
     <Compile Include="ProcessAccessFlags.cs" />
-    <Compile Include="Reader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

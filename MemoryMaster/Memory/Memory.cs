@@ -6,17 +6,36 @@ using System.Diagnostics;
 
 namespace MemoryMaster.Memory
 {
+    /// <summary>
+    /// An objective view on a memory address
+    /// </summary>
     public class Memory
     {
+        /// <summary>
+        /// The process who's pool this Pointer is in
+        /// </summary>
         public Process process;
+
+        /// <summary>
+        /// The address of this memory
+        /// </summary>
         public int Address = 0;
 
+        /// <summary>
+        /// Internally used constructor
+        /// </summary>
+        /// <param name="process">The process to watch</param>
+        /// <param name="address">The address of the pointer</param>
         public Memory(Process process, int address)
         {
             this.process = process;
             this.Address = address;
         }
 
+        /// <summary>
+        /// Get Value as integer (4 bytes)
+        /// </summary>
+        /// <returns>Integer</returns>
         public int GetValue()
         {
             int bytesRead;
@@ -24,6 +43,11 @@ namespace MemoryMaster.Memory
             int am = BitConverter.ToInt32(value, 0);
             return am;
         }
+
+        /// <summary>
+        /// Get value as float (4 bytes)
+        /// </summary>
+        /// <returns>Float</returns>
         public float GetFloat()
         {
             int bytesRead;
@@ -31,6 +55,11 @@ namespace MemoryMaster.Memory
             float am = BitConverter.ToSingle(value, 0);
             return am;
         }
+
+        /// <summary>
+        /// Get value as single byte
+        /// </summary>
+        /// <returns>Byte</returns>
         public byte GetByte()
         {
             int bytesRead;
@@ -42,6 +71,11 @@ namespace MemoryMaster.Memory
             return value[0];
         }
 
+        /// <summary>
+        /// Get value as string
+        /// </summary>
+        /// <param name="length">Length of the string</param>
+        /// <returns>String</returns>
         public string GetString(int length)
         {
             int bytesRead;
@@ -62,6 +96,10 @@ namespace MemoryMaster.Memory
             return System.Text.Encoding.ASCII.GetString(bar);
         }
 
+        /// <summary>
+        /// Get value as short
+        /// </summary>
+        /// <returns>Short</returns>
         public short GetShort()
         {
             int bytesRead;
