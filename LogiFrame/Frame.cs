@@ -143,15 +143,14 @@ namespace LogiFrame
 
         public void SetFramesPerSecond(int framesPerSecond)
         {
-            StopThread();
-
             //Calculate refresh rate
             if (framesPerSecond < 0 || framesPerSecond > 60)
                 throw new FrameRateOutOfBoundsException("LogiFrame's framerate has to be between 0 and 60.");
 
             refreshRate = framesPerSecond == 0 ? 0 : 1000 / framesPerSecond;
 
-            StartThread();
+            if(updateThread == null)
+                StartThread();
 
         }
         private void StartThread()
