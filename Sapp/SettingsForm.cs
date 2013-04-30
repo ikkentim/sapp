@@ -23,7 +23,7 @@ namespace Sapp
 
             LogiFrame.MessageSet set = new LogiFrame.MessageSet();
 
-            propertyGrid1.SelectedObject = set;
+            messageSetPropertyGrid.SelectedObject = set;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

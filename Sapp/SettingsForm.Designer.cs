@@ -33,11 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.libraryComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.messageSetPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.messageSetsListbox = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -98,17 +98,17 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Library:";
             // 
-            // propertyGrid1
+            // messageSetPropertyGrid
             // 
-            this.propertyGrid1.CommandsVisibleIfAvailable = false;
-            this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid1.HelpVisible = false;
-            this.propertyGrid1.Location = new System.Drawing.Point(3, 16);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-            this.propertyGrid1.Size = new System.Drawing.Size(293, 243);
-            this.propertyGrid1.TabIndex = 1;
-            this.propertyGrid1.ToolbarVisible = false;
+            this.messageSetPropertyGrid.CommandsVisibleIfAvailable = false;
+            this.messageSetPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageSetPropertyGrid.HelpVisible = false;
+            this.messageSetPropertyGrid.Location = new System.Drawing.Point(3, 16);
+            this.messageSetPropertyGrid.Name = "messageSetPropertyGrid";
+            this.messageSetPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
+            this.messageSetPropertyGrid.Size = new System.Drawing.Size(293, 243);
+            this.messageSetPropertyGrid.TabIndex = 1;
+            this.messageSetPropertyGrid.ToolbarVisible = false;
             // 
             // panel1
             // 
@@ -122,7 +122,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.listBox1);
+            this.groupBox3.Controls.Add(this.messageSetsListbox);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 93);
             this.groupBox3.Name = "groupBox3";
@@ -133,7 +133,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.propertyGrid1);
+            this.groupBox4.Controls.Add(this.messageSetPropertyGrid);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(289, 0);
             this.groupBox4.Name = "groupBox4";
@@ -142,13 +142,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Quick Message Set";
             // 
-            // listBox1
+            // messageSetsListbox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(47, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 7;
+            this.messageSetsListbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageSetsListbox.FormattingEnabled = true;
+            this.messageSetsListbox.Location = new System.Drawing.Point(3, 16);
+            this.messageSetsListbox.Name = "messageSetsListbox";
+            this.messageSetsListbox.Size = new System.Drawing.Size(283, 150);
+            this.messageSetsListbox.TabIndex = 7;
             // 
             // SettingsForm
             // 
@@ -158,7 +159,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panel1);
             this.Name = "SettingsForm";
-            this.Text = "Settingsform";
+            this.Text = "Sapp Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -175,10 +176,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox libraryComboBox;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.PropertyGrid messageSetPropertyGrid;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox messageSetsListbox;
         private System.Windows.Forms.GroupBox groupBox4;
     }
 }
