@@ -29,6 +29,12 @@ namespace Sapp.Tabs
             lcd.SetFramesPerSecond(5);
         }
 
+        public void Hide(Frame lcd)
+        {
+            lcd.OnButtonPressed -= lcd_OnButtonPressed;
+            lcd.OnRenderFrame -= lcd_OnRenderFrame;
+        }
+
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
             Pointer player = GTA.gta.GetPointer(0xB6F5F0);
@@ -75,11 +81,6 @@ namespace Sapp.Tabs
         {
             if (e.button == Button.Button4)
                 app.ShowNextTab();
-        }
-        public void Hide(Frame lcd)
-        {
-            lcd.OnButtonPressed -= lcd_OnButtonPressed;
-            lcd.OnRenderFrame -= lcd_OnRenderFrame;
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="LCDApplication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tabs\InVehicle.cs" />
     <Compile Include="Tabs\LoadingGame.cs" />
     <Compile Include="Tabs\Offline.cs" />
     <Compile Include="Tabs\OnFoot.cs" />
