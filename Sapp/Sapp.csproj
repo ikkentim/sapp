@@ -58,6 +58,7 @@
     <Compile Include="Tabs\LoadingGame.cs" />
     <Compile Include="Tabs\Offline.cs" />
     <Compile Include="Tabs\OnFoot.cs" />
+    <Compile Include="Tabs\Settings.cs" />
     <Compile Include="Tabs\Tab.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,6 +70,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

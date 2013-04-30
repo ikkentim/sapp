@@ -10,7 +10,7 @@ namespace Sapp
     class LCDApplication
     {
         List<Tabs.Tab> tabs = new List<Tabs.Tab>();
-        Frame lcd = new Frame(LogiFrame.Logitech.Keyboard.G510, "Sapp", 15);
+        Frame lcd = new Frame(Properties.Settings.Default.Library == "G15" ? LogiFrame.Logitech.Keyboard.G15 : LogiFrame.Logitech.Keyboard.G510, "Sapp", 15);
 
         Tabs.Tab CurrentTab = null;
         public LCDApplication()
@@ -26,6 +26,10 @@ namespace Sapp
             //While in game
             tabs.Add(new Tabs.OnFoot(this));
             tabs.Add(new Tabs.InVehicle(this));
+
+            //Always
+            tabs.Add(new Tabs.Settings(this));
+
             ShowNextTab();
 
         }

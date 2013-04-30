@@ -11,6 +11,8 @@ namespace Sapp.Tabs
     class OnFoot : Tab
     {
         LCDApplication app;
+
+        bool quickSwitch;
         public OnFoot(LCDApplication app)
         {
             this.app = app;
@@ -27,6 +29,8 @@ namespace Sapp.Tabs
             lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
 
             lcd.SetFramesPerSecond(5);
+
+            quickSwitch = !GTA.gta.GetPointer(0xBA18FC).Pointing;
         }
 
         public void Hide(Frame lcd)
@@ -37,8 +41,10 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
-            if (GTA.gta.GetPointer(0xBA18FC).Pointing)
+            if (Properties.Settings.Default.QuickSwitch && quickSwitch && GTA.gta.GetPointer(0xBA18FC).Pointing)
                 app.ShowNextTab((new InVehicle(null)).GetType());
+            else if (!quickSwitch && !GTA.gta.GetPointer(0xBA18FC).Pointing)
+                quickSwitch = true;
 
             Pointer player = GTA.gta.GetPointer(0xB6F5F0);
             Pointer location = player.GetPointer(0x14);

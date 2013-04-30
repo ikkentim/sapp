@@ -14,6 +14,8 @@ namespace Sapp.Tabs
         bool flicker = false;
         LCDApplication app;
 
+        bool quickSwitch;
+
         public InVehicle(LCDApplication app)
         {
             this.app = app;
@@ -30,6 +32,8 @@ namespace Sapp.Tabs
             lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
 
             lcd.SetFramesPerSecond(5);
+
+            quickSwitch = GTA.gta.GetPointer(0xBA18FC).Pointing;
         }
 
         public void Hide(Frame lcd)
@@ -47,10 +51,16 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
-            e.graphics.Clear(Color.White);
 
             Pointer vehiclePointer = GTA.gta.GetPointer(0xBA18FC);
 
+            if (Properties.Settings.Default.QuickSwitch && quickSwitch && !vehiclePointer.Pointing)
+                app.ShowNextTab((new OnFoot(null)).GetType());
+            else if (!quickSwitch && !vehiclePointer.Pointing)
+                quickSwitch = true;
+
+
+            e.graphics.Clear(Color.White);
             if (!vehiclePointer.Pointing)
             {
                 e.graphics.DrawString("You are currently not in any vehicle", Drawing.Fonts.Regular, Brushes.Black, new Point(1, 1));
@@ -120,10 +130,10 @@ namespace Sapp.Tabs
                     flicker?1:0, seat, steats);
             }
             else if (SanAndreas.Data.vehicleType(type) == SanAndreas.Vehicle.PLANECAR && SanAndreas.Data.isPlane(model))
-            {
                 Drawing.Progressbar.Draw(e.graphics, new Rectangle(145, 8, 8, 32), Direction.Up, (z % 250) / 5, true);
-            }
-            Drawing.Progressbar.Draw(e.graphics, new Rectangle(2, 35, 50, 6), Direction.Right, (float)Math.Ceiling(750 - (health - 250)) / 750 * 100);
+
+            //Health
+            Drawing.Progressbar.Draw(e.graphics, new Rectangle(2, 35, 50, 6), Direction.Right, (health - 250) / 750 * 100);
        
             //Nitro
             if (!(nosStatus > 0 && nos == 0))
@@ -132,10 +142,10 @@ namespace Sapp.Tabs
                     Drawing.Progressbar.Draw(e.graphics, new Rectangle(118, 8, 8, 32), Direction.Up, 100 - (-nosStatus * 100));
                 else
                     Drawing.Progressbar.Draw(e.graphics, new Rectangle(118, 8, 8, 32), Direction.Down, (nosStatus * 100));
+
+                //Draw all nitro boxes
                 for (int i = 0; i < nos - ((nosStatus == 1 || nosStatus < 0) ? 1 : 0); i++)
-                {
                     e.graphics.FillRectangle(Brushes.Black, new Rectangle(106 + ((i % 3) * 4), 31 + (((i - (i % 3)) / 3) * 4), 2, 2));
-                }
             }
 
             //Speed
