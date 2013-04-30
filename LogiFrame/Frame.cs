@@ -49,7 +49,7 @@ namespace LogiFrame
                     break;
 
                 case Logitech.Keyboard.Simulator:
-                    lcd = new Interfaces.Simulator(applicationName);
+                    lcd = new Interfaces.Simulator(this, applicationName);
                     Width = Logitech.Sizes.Simulator.Width;
                     Height = Logitech.Sizes.Simulator.Height;
                     break;

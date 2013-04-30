@@ -12,11 +12,12 @@ namespace LogiFrame
     internal partial class Simulator : Form
     {
         private long buttonState = 0;
-
-        public Simulator(string name)
+        Frame lcd;
+        public Simulator(Frame lcd, string name)
         {
             InitializeComponent();
             this.Text = name;
+            this.lcd = lcd;
             this.Show();
         }
 
@@ -26,13 +27,11 @@ namespace LogiFrame
             return buttonState;
         }
 
-        public delegate void SetUpdatePriorityDelegate(UpdatePriority priority);
         public void SetUpdatePriority(UpdatePriority priority)
         {
             if (label1.InvokeRequired)
             {
-                var d = new SetUpdatePriorityDelegate(SetUpdatePriority);
-                d.Invoke(priority);
+                label1.Invoke((MethodInvoker)(() => label1.Text = "Priority: " + priority.ToString()));
             }
             else
             {
@@ -84,6 +83,11 @@ namespace LogiFrame
         private void button4_MouseUp(object sender, MouseEventArgs e)
         {
             buttonState = buttonState ^ (long)Button.Button4;
+        }
+
+        private void Simulator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            lcd.Close();
         }
     }
 }

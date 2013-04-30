@@ -10,20 +10,23 @@ namespace LogiFrame.Interfaces
     {
         string n = "";
         LogiFrame.Simulator f;
-        public Simulator(string name)
+        Frame lcd;
+        public Simulator(Frame lcd, string name)
         {
             n = name;
-
+            this.lcd = lcd;
             System.Threading.Thread t = new System.Threading.Thread(threadVoid);
             t.Start();
 
+            while(f==null)
+                System.Threading.Thread.Sleep(5);
         }
 
         private void threadVoid()
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(f = new LogiFrame.Simulator(n)); // or whatever
+            Application.Run(f = new LogiFrame.Simulator(lcd, n)); // or whatever
         }
 
         public int GetButtons()
@@ -33,25 +36,24 @@ namespace LogiFrame.Interfaces
 
         public long ReadSoftButtons()
         {
-            return f==null?0:f.ReadSoftButtons();
+            return f == null || f.Disposing || f.IsDisposed ? 0 : f.ReadSoftButtons();
         }
 
         public void SetUpdatePriority(UpdatePriority priority)
         {
-            if (f != null)
+            if (f != null && !f.Disposing && !f.IsDisposed)
                 f.SetUpdatePriority(priority);
         }
 
         public void UpdateScreen(System.Drawing.Bitmap bitmap)
         {
-            if (f != null)
+            if (f != null && !f.Disposing && !f.IsDisposed)
                 f.UpdateScreen(bitmap);
         }
 
         public void Close()
         {
-            if (f != null)
-                f.Close();
+
         }
     }
 }
