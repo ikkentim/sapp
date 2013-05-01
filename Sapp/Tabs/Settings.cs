@@ -38,11 +38,11 @@ namespace Sapp.Tabs
             {
                 case 0:
                     e.graphics.DrawString("Quick Switch:", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
-                    e.graphics.DrawString(Properties.Settings.Default.QuickSwitch ? "Enabled" : "Disabled", Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
+                    e.graphics.DrawString(Sapp.Settings.QuickSwitch ? "Enabled" : "Disabled", Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
                     break;
                 case 1:
                     e.graphics.DrawString("Library:", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
-                    e.graphics.DrawString(Properties.Settings.Default.Library, Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
+                    e.graphics.DrawString(Sapp.Settings.Library, Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
                     break;
                 case 2:
                     e.graphics.DrawString("Open Settings Window", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
@@ -56,14 +56,12 @@ namespace Sapp.Tabs
                 switch (CurrentSetting)
                 {
                     case 0:
-                        Properties.Settings.Default.QuickSwitch = !Properties.Settings.Default.QuickSwitch;
+                        Sapp.Settings.QuickSwitch = !Sapp.Settings.QuickSwitch;
                         break;
                     case 1:
-                        Properties.Settings.Default.Library = Properties.Settings.Default.Library == "G15" ? "G510" : "G15";
+                        Sapp.Settings.Library = Sapp.Settings.Library == "G15" ? "G510" : "G15";
                         break;
                     case 2:
-                        System.Windows.Forms.Application.EnableVisualStyles();
-                        System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
                         System.Windows.Forms.Application.Run(new SettingsForm());
                         break;
                 }

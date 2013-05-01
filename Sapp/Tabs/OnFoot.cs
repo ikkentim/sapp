@@ -41,7 +41,7 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
-            if (Properties.Settings.Default.QuickSwitch && quickSwitch && GTA.gta.GetPointer(0xBA18FC).Pointing)
+            if (Sapp.Settings.QuickSwitch && quickSwitch && GTA.gta.GetPointer(0xBA18FC).Pointing)
                 app.ShowNextTab((new InVehicle(null)).GetType());
             else if (!quickSwitch && !GTA.gta.GetPointer(0xBA18FC).Pointing)
                 quickSwitch = true;

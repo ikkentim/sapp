@@ -20,15 +20,72 @@ namespace Sapp
             InitializeComponent();
 
             SetForegroundWindow(Handle.ToInt32());
-
-            LogiFrame.MessageSet set = new LogiFrame.MessageSet();
-
-            messageSetPropertyGrid.SelectedObject = set;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void SettingsForm_Load(object sender, EventArgs e)
         {
+            if (!Settings.FileExists())
+                MessageBox.Show("Welcome to Sapp!\n" +
+                    "Since this is the first time you start this application, this settings window has opened.\n" +
+                    "From now on, you will be able to access this menu trough the LCD application.", "Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
+            Settings.Load();
+
+            quickSwitchCheckBox.Checked = Settings.QuickSwitch;
+            libraryListBox.SelectedIndex = Settings.Library == "G15" ? 0 : 1;
+
+            foreach(MessageSet m in Settings.MessageSets)
+                messageSetsListbox.Items.Add(m.Name);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageSet ms = new MessageSet("New", "", "", "", "");
+            Settings.MessageSets.Add(ms);
+            messageSetsListbox.Items.Add(ms.Name);
+
+            messageSetsListbox.SelectedIndex = messageSetsListbox.Items.Count - 1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (messageSetsListbox.SelectedIndex >= 0 && messageSetsListbox.SelectedIndex < messageSetsListbox.Items.Count)
+            {
+                messageSetPropertyGrid.SelectedObject = null;
+                Settings.MessageSets.RemoveAt(messageSetsListbox.SelectedIndex);
+                messageSetsListbox.Items.RemoveAt(messageSetsListbox.SelectedIndex);
+            }
+        }
+
+        private void messageSetsListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (messageSetsListbox.SelectedIndex >= 0 && messageSetsListbox.SelectedIndex < messageSetsListbox.Items.Count)
+            {
+                messageSetPropertyGrid.SelectedObject = Settings.MessageSets[messageSetsListbox.SelectedIndex];
+            }
+        }
+
+        private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.Save();
+        }
+
+        private void quickSwitchCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.QuickSwitch = quickSwitchCheckBox.Checked;
+        }
+
+        private void libraryListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.Library = libraryListBox.SelectedIndex == 0 ? "G15" : "G510";
+        }
+
+        private void messageSetPropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
+        {
+            if (e.ChangedItem.Label == "Name")
+            {
+                messageSetsListbox.Items[messageSetsListbox.SelectedIndex] = e.ChangedItem.Value;
+            }
         }
     }
 }

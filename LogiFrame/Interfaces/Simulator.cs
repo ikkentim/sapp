@@ -24,8 +24,6 @@ namespace LogiFrame.Interfaces
 
         private void threadVoid()
         {
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(f = new LogiFrame.Simulator(lcd, n)); // or whatever
         }
 

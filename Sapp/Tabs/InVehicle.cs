@@ -54,7 +54,7 @@ namespace Sapp.Tabs
 
             Pointer vehiclePointer = GTA.gta.GetPointer(0xBA18FC);
 
-            if (Properties.Settings.Default.QuickSwitch && quickSwitch && !vehiclePointer.Pointing)
+            if (Sapp.Settings.QuickSwitch && quickSwitch && !vehiclePointer.Pointing)
                 app.ShowNextTab((new OnFoot(null)).GetType());
             else if (!quickSwitch && !vehiclePointer.Pointing)
                 quickSwitch = true;

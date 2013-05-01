@@ -10,11 +10,14 @@ namespace Sapp
     class LCDApplication
     {
         List<Tabs.Tab> tabs = new List<Tabs.Tab>();
-        Frame lcd = new Frame(Properties.Settings.Default.Library == "G15" ? LogiFrame.Logitech.Keyboard.G15 : LogiFrame.Logitech.Keyboard.G510, "Sapp", 15);
+        Frame lcd = new Frame(Sapp.Settings.Library == "G15" ? LogiFrame.Logitech.Keyboard.G15 : LogiFrame.Logitech.Keyboard.G510, "Sapp", 15);
 
         Tabs.Tab CurrentTab = null;
         public LCDApplication()
         {
+            //Load all settings
+            Settings.Load();
+
             lcd.SetUpdatePriority(UpdatePriority.Alert);
 
             //While offline

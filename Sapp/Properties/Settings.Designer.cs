@@ -22,29 +22,5 @@ namespace Sapp.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool QuickSwitch {
-            get {
-                return ((bool)(this["QuickSwitch"]));
-            }
-            set {
-                this["QuickSwitch"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("G15")]
-        public string Library {
-            get {
-                return ((string)(this["Library"]));
-            }
-            set {
-                this["Library"] = value;
-            }
-        }
     }
 }

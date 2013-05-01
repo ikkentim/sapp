@@ -26,7 +26,7 @@ namespace Sapp.Tabs
             lcd.OnButtonPressed += new Frame.ButtonPressedHandler(lcd_OnButtonPressed);
             lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
 
-            lcd.SetFramesPerSecond(1);
+            lcd.SetFramesPerSecond(4);
         }
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
