@@ -29,7 +29,7 @@ namespace Sapp
             //While in game
             tabs.Add(new Tabs.OnFoot(this));
             tabs.Add(new Tabs.InVehicle(this));
-
+            tabs.Add(new Tabs.Messaging(this));
             //Always
             tabs.Add(new Tabs.Settings(this));
 

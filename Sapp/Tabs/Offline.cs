@@ -31,13 +31,18 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
+            if (!IsShowAble())
+            {
+                app.ShowNextTab();
+                return;
+            }
+
             e.graphics.Clear(Color.White);
             e.graphics.DrawString("[LSRES]", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
             e.graphics.DrawString("Join", Drawing.Fonts.Regular, Brushes.Black, new Point(6, 30));
             e.graphics.DrawString("Website", Drawing.Fonts.Regular, Brushes.Black, new Point(36, 30));
 
-            if (!IsShowAble())
-                app.ShowNextTab();
+
         }
 
         public void lcd_OnButtonPressed(ButtonPressedEventArgs e)

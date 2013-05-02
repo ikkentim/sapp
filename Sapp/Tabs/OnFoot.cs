@@ -41,10 +41,14 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
+            if (!IsShowAble())
+            {
+                app.ShowNextTab();
+                return;
+            }
+
             if (Sapp.Settings.QuickSwitch && quickSwitch && GTA.gta.GetPointer(0xBA18FC).Pointing)
                 app.ShowNextTab((new InVehicle(null)).GetType());
-            else if (!quickSwitch && !GTA.gta.GetPointer(0xBA18FC).Pointing)
-                quickSwitch = true;
 
             Pointer player = GTA.gta.GetPointer(0xB6F5F0);
             Pointer location = player.GetPointer(0x14);

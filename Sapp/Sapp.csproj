@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientMessage.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Drawing\Car.cs" />
     <Compile Include="Drawing\Fonts.cs" />
@@ -83,8 +84,10 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tabs\Chat.cs" />
     <Compile Include="Tabs\InVehicle.cs" />
     <Compile Include="Tabs\LoadingGame.cs" />
+    <Compile Include="Tabs\Messaging.cs" />
     <Compile Include="Tabs\Offline.cs" />
     <Compile Include="Tabs\OnFoot.cs" />
     <Compile Include="Tabs\Settings.cs" />

@@ -38,8 +38,8 @@ namespace Sapp.Tabs
 
         public void Hide(Frame lcd)
         {
-            lcd.OnButtonPressed -= new Frame.ButtonPressedHandler(lcd_OnButtonPressed);
-            lcd.OnRenderFrame -= new Frame.RenderFrameHandler(lcd_OnRenderFrame);
+            lcd.OnButtonPressed -= lcd_OnButtonPressed;
+            lcd.OnRenderFrame -= lcd_OnRenderFrame;
         }
 
         void lcd_OnButtonPressed(ButtonPressedEventArgs e)
@@ -51,13 +51,16 @@ namespace Sapp.Tabs
 
         void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
+            if (!IsShowAble())
+            {
+                app.ShowNextTab();
+                return;
+            }
 
             Pointer vehiclePointer = GTA.gta.GetPointer(0xBA18FC);
 
             if (Sapp.Settings.QuickSwitch && quickSwitch && !vehiclePointer.Pointing)
                 app.ShowNextTab((new OnFoot(null)).GetType());
-            else if (!quickSwitch && !vehiclePointer.Pointing)
-                quickSwitch = true;
 
 
             e.graphics.Clear(Color.White);
