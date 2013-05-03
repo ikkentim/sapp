@@ -60,8 +60,16 @@ namespace Sapp.Tabs
             switch (e.button)
             {
                 case Button.Button1:
+                    if (Sapp.Settings.MessageSets.Count > 0 && Sapp.Settings.MessageSets[currentSet].MessageOneContent.Length > 0)
+                    {
+                        ClientMessage.Send(Sapp.Settings.MessageSets[currentSet].MessageOneContent);
+                    }
                     break;
                 case Button.Button2:
+                    if (Sapp.Settings.MessageSets.Count > 0 && Sapp.Settings.MessageSets[currentSet].MessageTwoContent.Length > 0)
+                    {
+                        ClientMessage.Send(Sapp.Settings.MessageSets[currentSet].MessageTwoContent);
+                    }
                     break;
                 case Button.Button3:
                     currentSet = (currentSet + 1) % Sapp.Settings.MessageSets.Count;
