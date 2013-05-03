@@ -18,7 +18,7 @@ namespace Sapp
             //Load all settings
             Settings.Load();
 
-            lcd.SetUpdatePriority(UpdatePriority.Alert);
+            lcd.SetUpdatePriority(UpdatePriority.Normal);
 
             //While offline
             tabs.Add(new Tabs.Offline(this));
