@@ -28,7 +28,7 @@ namespace MemoryMaster.Memory
         {
             foreach (ProcessModule module in process.Modules)
                 if (string.Compare(module.ModuleName, moduleName, true) == 0)
-                    return new Pointer(process, (int)module.BaseAddress);
+                    return new Pointer(process, (int)module.BaseAddress, true);
             return null;
         }
     }

@@ -30,6 +30,8 @@ namespace Sapp
             tabs.Add(new Tabs.OnFoot(this));
             tabs.Add(new Tabs.InVehicle(this));
             tabs.Add(new Tabs.Messaging(this));
+            tabs.Add(new Tabs.Chat(this));
+
             //Always
             tabs.Add(new Tabs.Settings(this));
 

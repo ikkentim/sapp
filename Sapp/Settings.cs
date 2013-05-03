@@ -10,6 +10,8 @@ namespace Sapp
     {
         public static bool QuickSwitch = true;
         public static string Library = "G15";
+        public static int ChatScrollSpeed = 2;
+
         public static List<MessageSet> MessageSets;
 
         private static readonly string settingsFileName = "settings.xml";
@@ -47,6 +49,15 @@ namespace Sapp
                 settings.Add(quickswitch);
             }
             Boolean.TryParse(quickswitch.Value, out QuickSwitch);
+
+            //read quickswitch
+            XElement chatScrollSpeed = settings.Element("chatscrollspeed");
+            if (chatScrollSpeed == null)
+            {
+                chatScrollSpeed = new XElement("chatscrollspeed", ChatScrollSpeed.ToString());
+                settings.Add(chatScrollSpeed);
+            }
+            Int32.TryParse(chatScrollSpeed.Value, out ChatScrollSpeed);
 
             //Read library
             XElement library = settings.Element("library");

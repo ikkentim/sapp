@@ -78,8 +78,7 @@ namespace Sapp.Tabs
                     app.ShowNextTab();
                     break;
 
-            }
-                
+            } 
         }
 
         public void Hide(Frame lcd)

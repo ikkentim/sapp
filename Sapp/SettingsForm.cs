@@ -32,6 +32,7 @@ namespace Sapp
             Settings.Load();
 
             quickSwitchCheckBox.Checked = Settings.QuickSwitch;
+            chatScrollSpeedListBox.SelectedIndex = Settings.ChatScrollSpeed;
             libraryListBox.SelectedIndex = Settings.Library == "G15" ? 0 : 1;
 
             foreach(MessageSet m in Settings.MessageSets)
@@ -85,6 +86,14 @@ namespace Sapp
             if (e.ChangedItem.Label == "Name")
             {
                 messageSetsListbox.Items[messageSetsListbox.SelectedIndex] = e.ChangedItem.Value;
+            }
+        }
+
+        private void chatScrollSpeedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (chatScrollSpeedListBox.SelectedIndex >= 0 && chatScrollSpeedListBox.SelectedIndex < chatScrollSpeedListBox.Items.Count)
+            {
+                Settings.ChatScrollSpeed = chatScrollSpeedListBox.SelectedIndex;
             }
         }
     }

@@ -39,6 +39,24 @@ namespace MemoryMaster.Memory
             Pointing = this.Address != 0;
         }
 
+
+        /// <summary>
+        /// Internally used constructor
+        /// </summary>
+        /// <param name="process">The process to watch</param>
+        /// <param name="address">The address of the pointer</param>
+        /// <param name="doNotReadPointer">If true, doesn't read pointer's value and uses it's address instead</param>
+        public Pointer(Process process, int address, bool doNotReadPointer)
+        {
+            this.process = process;
+            if (doNotReadPointer)
+                this.Address = address;
+            else
+                this.Address = new Memory(process, address).GetValue();
+
+            Pointing = this.Address != 0;
+        }
+
         /// <summary>
         /// Get Pointer at this Pointer's finger + offset
         /// </summary>
