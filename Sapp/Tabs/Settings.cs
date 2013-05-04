@@ -66,6 +66,8 @@ namespace Sapp.Tabs
                     }
                     break;
                 case 2:
+                    if (GTA.gta == null)
+                        CurrentSetting = 3;
                     e.graphics.DrawString("Controller:", Drawing.Fonts.BigBold, Brushes.Black, new Point(1, 1));
                     e.graphics.DrawString(GTA.gta.GetMemory(0xBA6818).GetByte() == (byte)1 ? "Joypad" : "Keyboard/Mouse", Drawing.Fonts.Big, Brushes.Black, new Point(1, 13));
                     break;
@@ -91,8 +93,19 @@ namespace Sapp.Tabs
                         Sapp.Settings.ChatScrollSpeed = (Sapp.Settings.ChatScrollSpeed + 1) % 6;
                         break;
                     case 2:
+                        if (GTA.gta == null)
+                            return;
                         byte previous = GTA.gta.GetMemory(0xBA6818).GetByte();
-
+                        if (previous == 0)
+                        {
+                            GTA.gta.GetMemory(0xBA6818).SetByte(1);
+                            GTA.gta.GetMemory(0xB6EC2E).SetByte(0);
+                        }
+                        else
+                        {
+                            GTA.gta.GetMemory(0xBA6818).SetByte(0);
+                            GTA.gta.GetMemory(0xB6EC2E).SetByte(1);
+                        }
                         break;
                     case 3:
                         Sapp.Settings.Library = Sapp.Settings.Library == "G15" ? "G510" : "G15";
@@ -102,7 +115,12 @@ namespace Sapp.Tabs
                         break;
                 }
             if (e.button == Button.Button3)
+            {
                 CurrentSetting = (CurrentSetting + 1) % 5;
+
+                if (GTA.gta == null && CurrentSetting == 2)
+                    CurrentSetting = 3;
+            }
             if (e.button == Button.Button4)
                 app.ShowNextTab();
         }
