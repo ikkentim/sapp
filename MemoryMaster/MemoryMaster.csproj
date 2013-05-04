@@ -43,7 +43,7 @@
     <Compile Include="Memory\Memory.cs" />
     <Compile Include="Memory\Pointer.cs" />
     <Compile Include="Memory\ProcessReader.cs" />
-    <Compile Include="Memory\Reader.cs" />
+    <Compile Include="Memory\MemoryModifier.cs" />
     <Compile Include="ProcessAccessFlags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -39,7 +39,7 @@ namespace MemoryMaster.Memory
         public int GetValue()
         {
             int bytesRead;
-            byte[] value = Reader.Read(process, Address, 4, out bytesRead);
+            byte[] value = MemoryModifier.Read(process, Address, 4, out bytesRead);
             int am = BitConverter.ToInt32(value, 0);
             return am;
         }
@@ -51,7 +51,7 @@ namespace MemoryMaster.Memory
         public float GetFloat()
         {
             int bytesRead;
-            byte[] value = Reader.Read(process, Address, 4, out bytesRead);
+            byte[] value = MemoryModifier.Read(process, Address, 4, out bytesRead);
             float am = BitConverter.ToSingle(value, 0);
             return am;
         }
@@ -63,12 +63,21 @@ namespace MemoryMaster.Memory
         public byte GetByte()
         {
             int bytesRead;
-            byte[] value = Reader.Read(process, Address, 4, out bytesRead);
+            byte[] value = MemoryModifier.Read(process, Address, 4, out bytesRead);
             //byte[] value2 = new byte[4];
             //value2[0] = value[0];
             //int am = BitConverter.ToInt32(value2, 0);
             //return am;
             return value[0];
+        }
+
+        /// <summary>
+        /// Set value as byte
+        /// </summary>
+        /// <param name="val">Byte</param>
+        public void SetByte(byte val)
+        {
+            MemoryModifier.Write(process, Address, new byte[] {val});
         }
 
         /// <summary>
@@ -79,7 +88,7 @@ namespace MemoryMaster.Memory
         public string GetString(int length)
         {
             int bytesRead;
-            byte[] value = Reader.Read(process, Address, length, out bytesRead);
+            byte[] value = MemoryModifier.Read(process, Address, length, out bytesRead);
 
             // get final length of string
             int i = value.Length - 1;
@@ -103,7 +112,7 @@ namespace MemoryMaster.Memory
         public short GetShort()
         {
             int bytesRead;
-            byte[] value = Reader.Read(process, Address, 4, out bytesRead);
+            byte[] value = MemoryModifier.Read(process, Address, 4, out bytesRead);
             byte[] value2 = new byte[4];
             value2[0] = value[0];
             value2[1] = value[1];
