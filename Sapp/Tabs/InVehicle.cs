@@ -53,7 +53,7 @@ namespace Sapp.Tabs
         {
             if (!IsShowAble())
             {
-                app.ShowNextTab();
+                app.ShowNextTab(new Offline(null).GetType());
                 return;
             }
 

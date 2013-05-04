@@ -26,9 +26,16 @@ namespace MemoryMaster.Memory
         /// <returns>Pointer</returns>
         public Pointer GetModulePointer(string moduleName)
         {
-            foreach (ProcessModule module in process.Modules)
-                if (string.Compare(module.ModuleName, moduleName, true) == 0)
-                    return new Pointer(process, (int)module.BaseAddress, true);
+            try
+            {
+                foreach (ProcessModule module in process.Modules)
+                    if (string.Compare(module.ModuleName, moduleName, true) == 0)
+                        return new Pointer(process, (int)module.BaseAddress, true);
+            }
+            catch (Exception)
+            {
+                //Accessing process modules can cause exceptions and crashes...
+            }
             return null;
         }
     }

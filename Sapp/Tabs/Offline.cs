@@ -22,7 +22,7 @@ namespace Sapp.Tabs
             return GTA.gta == null;
         }
         public void Show(Frame lcd)
-        { 
+        {
             lcd.OnButtonPressed += new Frame.ButtonPressedHandler(lcd_OnButtonPressed);
             lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
 

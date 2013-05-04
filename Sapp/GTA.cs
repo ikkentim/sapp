@@ -13,18 +13,31 @@ namespace Sapp
 
         public static void Find()
         {
-            if (gta !=null && gta.process.HasExited)
+            if (gta != null && gta.process.HasExited)
+            {
+                Debug.WriteLine("GTA has exited, resetting process...");
                 gta = null;
-
-            if (gta == null)
+                samp = null;
+            }
+            if (gta == null || samp == null)
             {
                 Process[] processes = Process.GetProcessesByName("gta_sa");
                 if (processes.Length == 1)
+                {
+                    Debug.WriteLine("Found GTA process...");
                     gta = new MemoryMaster.Memory.ProcessReader(processes[0]);
+
+                    if (samp == null)
+                    {
+                        Debug.WriteLine("Waiting for SAMP...");
+                        samp = gta.GetModulePointer("samp.dll");
+                        if (samp != null)
+                            Debug.WriteLine("Found SAMP module...");
+                    }
+                }
             }
 
-            if (gta != null && samp == null)
-                samp = gta.GetModulePointer("samp.dll");
+
 
         }
     }
