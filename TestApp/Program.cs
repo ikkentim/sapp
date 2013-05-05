@@ -12,7 +12,7 @@ namespace TestApp
     class Program
     {
 
-        static void Mainz(string[] args)
+        static void Main(string[] args)
         {
             int itterations = 100;
             byte[] sample = new byte[1];
@@ -231,7 +231,7 @@ namespace TestApp
             return c;
         }
 
-        static void Main(string[] args)
+        static void Mainy(string[] args)
         {
             Console.Write("Collecting font data...");
 

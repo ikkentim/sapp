@@ -69,7 +69,7 @@ namespace TestApp
                 {
                     int addr = (_y * width + _x);
 
-                    if (((bytes[addr / 8] >> (8 - (addr % 8) + 1)) & 1) == 1)
+                    if (((bytes[addr / 8] >> (8 - (addr % 8) - 1)) & 1) == 1)
                     {
 
                         int target_addr = x + _x + (y + _y) * w;
