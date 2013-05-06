@@ -13,6 +13,11 @@ namespace LogiFrame
         public Graphics graphics;
 
         /// <summary>
+        /// Array of bytes for manual rendering
+        /// </summary>
+        public byte[] bytemap;
+
+        /// <summary>
         /// Instance of frame this is called from
         /// </summary>
         public Frame lcd;
@@ -23,12 +28,24 @@ namespace LogiFrame
         public bool skipFrame = false;
 
         /// <summary>
-        /// Constructor
+        /// 
         /// </summary>
+        /// <param name="lcd"></param>
         /// <param name="graphics"></param>
         public RenderFrameEventArgs(Frame lcd, Graphics graphics)
         {
             this.graphics = graphics;
+            this.lcd = lcd;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lcd"></param>
+        /// <param name="bytemap"></param>
+        public RenderFrameEventArgs(Frame lcd, byte[] bytemap)
+        {
+            this.bytemap = bytemap;
             this.lcd = lcd;
         }
     }

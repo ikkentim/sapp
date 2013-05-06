@@ -36,8 +36,12 @@ namespace LogiFrame.Interfaces
 
         public void UpdateScreen(System.Drawing.Bitmap bitmap)
         {
-            
             lcd.DisplayBitmap(ref Utilities.Image.ToByteMap(bitmap)[0], updatePriority);
+        }
+
+        public void UpdateScreen(byte[] bytemap)
+        {
+            lcd.DisplayBitmap(ref bytemap[0], updatePriority);
         }
 
         public long ReadSoftButtons()

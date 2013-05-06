@@ -6,15 +6,39 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
 using System.IO;
+using LogiFrame;
 
 namespace TestApp
 {
     class Program
     {
 
+        //static FileStream fs = File.OpenRead("arial10c.dat");
+
         static void Main(string[] args)
         {
-            int itterations = 100;
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+
+
+            Frame lcd = new Frame(LogiFrame.Logitech.Keyboard.Simulator, "Test app", 5, RenderType.Bytemap);
+            lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
+        }
+
+        static void lcd_OnRenderFrame(RenderFrameEventArgs e)
+        {
+            //e.graphics.DrawLine(Pens.Black, new Point(0, 0), new Point(50, 50));
+
+            e.bytemap[200] = 255;
+
+            //CharByteMap cbm = new CharByteMap(fs, 'a');
+
+            //cbm.PrintToByteMap(e.bytemap, e.lcd.Width, 5, 5);
+        }
+
+        static void Mainwww(string[] args)
+        {
+            int itterations = 1000;
             byte[] sample = new byte[1];
 
             #region GDI+

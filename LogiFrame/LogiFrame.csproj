@@ -58,6 +58,7 @@
     <Compile Include="Frame.cs" />
     <Compile Include="Interfaces\Simulator.cs" />
     <Compile Include="RenderFrameEventArgs.cs" />
+    <Compile Include="RenderType.cs" />
     <Compile Include="Simulator.cs">
       <SubType>Form</SubType>
     </Compile>

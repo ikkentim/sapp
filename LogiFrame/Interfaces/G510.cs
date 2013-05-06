@@ -44,6 +44,7 @@ namespace LogiFrame.Interfaces
 
             }
         }
+
         public void UpdateScreen(System.Drawing.Bitmap bitmap)
         {
             bmp.pixels = Utilities.Image.ToByteMap(bitmap);
@@ -52,6 +53,15 @@ namespace LogiFrame.Interfaces
 
         }
 
+        public void UpdateScreen(byte[] bytemap)
+        {
+            bmp.pixels = bytemap;
+
+            LgLcd.NET.LgLcd.lgLcdUpdateBitmap(opn.device, ref bmp, LCDUpdatePriority);
+
+        }
+
+        
         public long ReadSoftButtons()
         {
             int intButtons = 0;
