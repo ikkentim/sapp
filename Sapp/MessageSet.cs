@@ -86,7 +86,7 @@ namespace Sapp
         {
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return this.Name + ": " + this.MessageOneName + "=" + this.MessageOneContent + ", " + this.MessageTwoName + "=" + this.MessageTwoContent;
         }

@@ -30,15 +30,9 @@ namespace LogiFrame
         private int refreshRate;
         private long buttonState = 0;
 
-        private byte[] bytemap;
-        private RenderType renderType;
         // <exception cref="FrameRateOutOfBoundsException">LogiFrame's framerate has to be between 0 and 60.</exception>
-        public Frame(Logitech.Keyboard keyboard, string applicationName, int framesPerSecond) : this(keyboard, applicationName, framesPerSecond, RenderType.GDI)
-        {
 
-        }
-
-        public Frame(Logitech.Keyboard keyboard, string applicationName, int framesPerSecond, RenderType renderType)
+        public Frame(Logitech.Keyboard keyboard, string applicationName, int framesPerSecond)
         {
 
             //Save keyboard specific variables
@@ -62,23 +56,14 @@ namespace LogiFrame
                     break;
             }
 
-            this.renderType = renderType;
-            switch (renderType)
-            {
-                case RenderType.GDI:
-                    //Prepare graphics
-                    bitmap = new Bitmap(Width, Height);
+            //Prepare graphics
+            bitmap = new Bitmap(Width, Height);
 
-                    graphics = Graphics.FromImage(bitmap);
-                    graphics.Clear(Color.White);
-                    graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit;
-                    graphics.SmoothingMode = SmoothingMode.Default;
+            graphics = Graphics.FromImage(bitmap);
+            graphics.Clear(Color.White);
+            graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SingleBitPerPixelGridFit;
+            graphics.SmoothingMode = SmoothingMode.Default;
 
-                    break;
-                case RenderType.Bytemap:
-                    bytemap = new byte[Width * Height];
-                    break;
-            }
 
             //Set FPS
             SetFramesPerSecond(framesPerSecond);
@@ -121,24 +106,11 @@ namespace LogiFrame
 
             if (renderFrame && OnRenderFrame != null)
             {
-                switch (renderType)
-                {
-                    case RenderType.GDI:
-                        RenderFrameEventArgs eg = new RenderFrameEventArgs(this, graphics);
-                        
-                        OnRenderFrame(eg);
-                        if (!eg.skipFrame) lcd.UpdateScreen(bitmap);
-                        eg = null;
+                RenderFrameEventArgs eg = new RenderFrameEventArgs(this, graphics);
 
-                        break;
-                    case RenderType.Bytemap:
-                        RenderFrameEventArgs eb = new RenderFrameEventArgs(this, bytemap);
-
-                        OnRenderFrame(eb);
-                        if (!eb.skipFrame) lcd.UpdateScreen(bytemap);
-                        eb = null;
-                        break;
-                }
+                OnRenderFrame(eg);
+                if (!eg.skipFrame) lcd.UpdateScreen(bitmap);
+                eg = null;
             }
         }
 

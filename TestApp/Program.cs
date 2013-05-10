@@ -13,27 +13,39 @@ namespace TestApp
     class Program
     {
 
-        //static FileStream fs = File.OpenRead("arial10c.dat");
+        static FileStream fs = File.OpenRead("arial10c.dat");
 
         static void Main(string[] args)
         {
+            /*
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 
 
-            Frame lcd = new Frame(LogiFrame.Logitech.Keyboard.Simulator, "Test app", 5, RenderType.Bytemap);
-            lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);
+            Frame lcd = new Frame(LogiFrame.Logitech.Keyboard.G15, "Test app", 5, RenderType.Bytemap);
+            lcd.OnRenderFrame += new Frame.RenderFrameHandler(lcd_OnRenderFrame);*/
         }
 
         static void lcd_OnRenderFrame(RenderFrameEventArgs e)
         {
             //e.graphics.DrawLine(Pens.Black, new Point(0, 0), new Point(50, 50));
-
+            /*
             e.bytemap[200] = 255;
 
-            //CharByteMap cbm = new CharByteMap(fs, 'a');
+            drawString(fs, "Test!", e.bytemap, e.lcd.Width, 5, 5);
 
-            //cbm.PrintToByteMap(e.bytemap, e.lcd.Width, 5, 5);
+            GC.Collect();*/
+        }
+
+        static void drawString(FileStream stream, string str, byte[] bytemap, int w, int x, int y)
+        {
+            int _x = x - 5;
+            foreach (char c in str.ToCharArray())
+            {
+                CharByteMap cbm = new CharByteMap(fs, c);
+                cbm.PrintToByteMap(bytemap, w, _x, y);
+                _x += cbm.width - 5;
+            }
         }
 
         static void Mainwww(string[] args)
